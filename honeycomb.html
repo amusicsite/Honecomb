@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="octagon.css">
+</HEAD>
+<BODY onload = "javascript:DrawGrid();">
+
+<script>
+
+function placeDiv(x, y) {
+var divTag = document.createElement("div"); 
+divTag.id = "div1"; 
+ThisColour = Math.floor((Math.random() * 4) + 1);
+switch(ThisColour) {
+    case 1:
+         divTag.className += "hexagonRed"; 
+        break;
+    case 2:
+         divTag.className += "hexagonYellow"; 
+        break;
+    case 3:
+         divTag.className += "hexagonBlue"; 
+        break;
+    case 4:
+         divTag.className += "hexagonGreen"; 
+        break;
+    default:
+        divTag.className += "hexagonRed"; 
+} 
+
+divTag.style.position = "absolute";
+divTag.style.left = x+'px';
+divTag.style.top = y+'px';
+document.body.appendChild(divTag);   
+}
+
+
+function DrawGrid () {
+var startX = 0;
+var startY = 0;
+var i = 0;
+var z = 0;
+
+while (z < 25) {
+
+while (i < 25) {
+placeDiv (startX-100,startY);
+startX=startX+101;
+i++;
+}
+var i = 0;
+if (startY & 1){
+startX=0;
+}
+else
+{
+startX=51;
+}
+startY=startY+81;
+z++;
+
+}
+
+}
+
+</script>
+
+</BODY>
+</HTML>
